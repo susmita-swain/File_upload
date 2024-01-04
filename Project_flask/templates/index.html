@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 1em;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>File Upload</h1>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        
+         
+        <!-- Add more navbar links as needed -->
+    </nav>
+
+    <main>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf">
+            <input type="submit" value="Upload and View PDF">
+            <button type="button" onclick="refreshPage()">Refresh</button>
+        </form>
+        
+    </main>
+    <script>
+        // JavaScript function to refresh the page
+        function refreshPage() {
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>

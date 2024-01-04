@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Content and Translation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #444;    
+            padding: 1em;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            color: #fff;
+            margin-left: 1em;
+            text-decoration: none;
+        }
+
+        .auth-buttons a:hover {
+            text-decoration: underline;
+        }
+
+        .translation {
+            padding-top: 1em;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PDF Content and Translation</h1>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <!-- Add more navbar links as needed -->
+    </nav>
+
+    <main>
+        <h1>PDF Content</h1>
+        <pre>{{ pdf_text }}</pre>
+
+        <div class="translation">
+            <h2>Pdf text format</h2>
+
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="language">Select Target Language:</label>
+                <select name="language" id="language">
+                    <option value="en">English</option>
+                    
+                    
+                    <!-- Add more language options as needed -->
+                </select>
+                <input type="submit" value="Translate">
+            </form>
+
+            <h3>Pdf Text:</h3>
+            <pre>{{ translated_text }}</pre>
+        </div>
+    </main>
+</body>
+</html>
